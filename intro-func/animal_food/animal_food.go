@@ -34,19 +34,27 @@ func animal(animalType string) (func(float32) float32, error) {
 }
 
 func dogFood(required float32) float32 {
-	return required - food[dog]
+	amount := required - food[dog]
+	food[dog] = max(food[dog], 0)
+	return amount
 }
 
 func catFood(required float32) float32 {
-	return required - food[cat]
+	amount := required - food[cat]
+	food[cat] = max(food[cat], 0)
+	return amount
 }
 
 func hamsterFood(required float32) float32 {
-	return required - food[hamster]
+	amount := required - food[hamster]
+	food[hamster] = max(food[hamster], 0)
+	return amount
 }
 
 func tarantulaFood(required float32) float32 {
-	return required - food[tarantula]
+	amount := required - food[tarantula]
+	food[tarantula] = max(food[tarantula], 0)
+	return amount
 }
 
 func main() {
