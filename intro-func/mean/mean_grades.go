@@ -1,8 +1,8 @@
-package main
+package mean
 
 import "fmt"
 
-func getMean(grades ...int) (mean int) {
+func GetMean(grades ...int) (mean int) {
 	for _, grade := range grades {
 		mean += grade
 	}
@@ -10,6 +10,6 @@ func getMean(grades ...int) (mean int) {
 }
 
 func main() {
-	fmt.Println(getMean(4, 6, 2, 7))
-	fmt.Println(getMean(2, 7, 3))
+	fmt.Println(GetMean(4, 6, 2, 7))
+	fmt.Println(GetMean(2, 7, 3))
 }

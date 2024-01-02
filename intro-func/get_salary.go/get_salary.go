@@ -1,35 +1,35 @@
-package main
+package getsalary
 
 import "fmt"
 
-func salaryTypeC(minutes int) float32 {
-	return 1000 * (float32(minutes) / 60)
+func SalaryTypeC(minutes int) float64 {
+	return 1000 * (float64(minutes) / 60)
 }
 
-func salaryTypeB(minutes int) float32 {
-	return (1500 * (float32(minutes) / 60)) * 1.2
+func SalaryTypeB(minutes int) float64 {
+	return (1500 * (float64(minutes) / 60)) * 1.2
 }
 
-func salaryTypeA(minutes int) float32 {
-	return (3000 * (float32(minutes) / 60)) * 1.56
+func SalaryTypeA(minutes int) float64 {
+	return (3000 * (float64(minutes) / 60)) * 1.50
 }
 
-func getSalary(minutes int, salaryType string) float32 {
-	var salary float32
+func GetSalary(minutes int, salaryType string) float64 {
+	var salary float64
 	switch salaryType {
 	case "A":
-		salary = salaryTypeA(minutes)
+		salary = SalaryTypeA(minutes)
 	case "B":
-		salary = salaryTypeB(minutes)
+		salary = SalaryTypeB(minutes)
 	case "C":
-		salary = salaryTypeC(minutes)
+		salary = SalaryTypeC(minutes)
 	}
 
 	return salary
 }
 
 func main() {
-	fmt.Println(getSalary(60, "C"))
-	fmt.Println(getSalary(60, "B"))
-	fmt.Println(getSalary(60, "A"))
+	fmt.Println(GetSalary(60, "C"))
+	fmt.Println(GetSalary(60, "B"))
+	fmt.Println(GetSalary(60, "A"))
 }

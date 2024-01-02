@@ -1,4 +1,4 @@
-package main
+package getgrades
 
 import (
 	"errors"
@@ -12,7 +12,7 @@ const (
 	maximum = "maximum"
 )
 
-func getMin(grades ...int) (int, error) {
+func GetMin(grades ...int) (int, error) {
 	if len(grades) == 0 {
 		return 0, errors.New("No grades given")
 	}
@@ -23,7 +23,7 @@ func getMin(grades ...int) (int, error) {
 	return lowestGrade, nil
 }
 
-func getMax(grades ...int) (int, error) {
+func GetMax(grades ...int) (int, error) {
 	if len(grades) == 0 {
 		return 0, errors.New("No grades given")
 	}
@@ -34,7 +34,7 @@ func getMax(grades ...int) (int, error) {
 	return maxGrade, nil
 }
 
-func getMean(grades ...int) (int, error) {
+func GetMean(grades ...int) (int, error) {
 	if len(grades) == 0 {
 		return 0, errors.New("No grades given")
 	}
@@ -45,34 +45,34 @@ func getMean(grades ...int) (int, error) {
 	return mean / len(grades), nil
 }
 
-func getOperation(operation string) (func(...int) (int, error), error) {
+func GetOperation(operation string) (func(...int) (int, error), error) {
 	switch operation {
 	case minimum:
-		return getMin, nil
+		return GetMin, nil
 	case maximum:
-		return getMax, nil
+		return GetMax, nil
 	case average:
-		return getMean, nil
+		return GetMean, nil
 	}
 	return nil, errors.New("No valid operation given")
 }
 
 func main() {
-	op, err := getOperation(minimum)
+	op, err := GetOperation(minimum)
 	if err != nil {
 		fmt.Println(err.Error())
 		return
 	}
 	fmt.Println(op(2, 3, 3, 4, 10, 2, 4, 5))
 
-	op, err = getOperation(maximum)
+	op, err = GetOperation(maximum)
 	if err != nil {
 		fmt.Println(err.Error())
 		return
 	}
 	fmt.Println(op(2, 3, 3, 4, 10, 2, 4, 5))
 
-	op, err = getOperation(average)
+	op, err = GetOperation(average)
 	if err != nil {
 		fmt.Println(err.Error())
 		return

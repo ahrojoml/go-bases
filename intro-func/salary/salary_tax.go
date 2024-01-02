@@ -1,9 +1,9 @@
-package main
+package salary
 
 import "fmt"
 
-func getTax(salary float32) float32 {
-	var tax float32
+func GetTax(salary float64) float64 {
+	var tax float64
 	switch {
 	case salary > 150000:
 		tax += salary * 0.17
@@ -15,7 +15,7 @@ func getTax(salary float32) float32 {
 }
 
 func main() {
-	fmt.Println(getTax(10000))
-	fmt.Println(getTax(60000))
-	fmt.Println(getTax(200000))
+	fmt.Println(GetTax(10000))
+	fmt.Println(GetTax(60000))
+	fmt.Println(GetTax(200000))
 }

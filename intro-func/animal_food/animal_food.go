@@ -1,4 +1,4 @@
-package main
+package animalfood
 
 import (
 	"errors"
@@ -12,64 +12,64 @@ const (
 	tarantula = "tarantula"
 )
 
-var food = map[string]float32{
+var food = map[string]float64{
 	dog:       10,
 	cat:       5,
 	hamster:   0.250,
 	tarantula: 0.150,
 }
 
-func animal(animalType string) (func(float32) float32, error) {
+func Animal(animalType string) (func(float64) float64, error) {
 	switch animalType {
 	case dog:
-		return dogFood, nil
+		return DogFood, nil
 	case cat:
-		return catFood, nil
+		return CatFood, nil
 	case hamster:
-		return hamsterFood, nil
+		return HamsterFood, nil
 	case tarantula:
-		return tarantulaFood, nil
+		return TarantulaFood, nil
 	}
 	return nil, errors.New(fmt.Sprintf("Animal %s was not found", animalType))
 }
 
-func dogFood(required float32) float32 {
+func DogFood(required float64) float64 {
 	amount := required - food[dog]
 	food[dog] = max(food[dog], 0)
 	return amount
 }
 
-func catFood(required float32) float32 {
+func CatFood(required float64) float64 {
 	amount := required - food[cat]
 	food[cat] = max(food[cat], 0)
 	return amount
 }
 
-func hamsterFood(required float32) float32 {
+func HamsterFood(required float64) float64 {
 	amount := required - food[hamster]
 	food[hamster] = max(food[hamster], 0)
 	return amount
 }
 
-func tarantulaFood(required float32) float32 {
+func TarantulaFood(required float64) float64 {
 	amount := required - food[tarantula]
 	food[tarantula] = max(food[tarantula], 0)
 	return amount
 }
 
 func main() {
-	var amount float32
-	animalDog, err := animal(dog)
+	var amount float64
+	animalDog, err := Animal(dog)
 	if err != nil {
 		fmt.Println(err.Error())
 	}
 
-	animalCat, err := animal(cat)
+	animalCat, err := Animal(cat)
 	if err != nil {
 		fmt.Println(err.Error())
 	}
 
-	_, err = animal("rat")
+	_, err = Animal("rat")
 	if err != nil {
 		fmt.Println(err.Error())
 	}
