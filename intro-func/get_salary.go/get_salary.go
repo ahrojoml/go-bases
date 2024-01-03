@@ -1,4 +1,4 @@
-package getsalary
+package main
 
 import "fmt"
 

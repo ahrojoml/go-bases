@@ -1,4 +1,4 @@
-package getsalary_test
+package main_test
 
 import (
 	getsalary "go-bases/intro-func/get_salary.go"

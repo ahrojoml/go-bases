@@ -1,7 +1,7 @@
-package mean_test
+package main_test
 
 import (
-	"go-bases/intro-func/mean"
+	mean "go-bases/intro-func/mean"
 	"testing"
 
 	"github.com/stretchr/testify/require"

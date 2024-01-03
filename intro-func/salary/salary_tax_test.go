@@ -1,7 +1,7 @@
-package salary_test
+package main_test
 
 import (
-	"go-bases/intro-func/salary"
+	salary "go-bases/intro-func/salary"
 	"testing"
 
 	"github.com/stretchr/testify/require"

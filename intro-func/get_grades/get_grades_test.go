@@ -1,4 +1,4 @@
-package getgrades_test
+package main_test
 
 import (
 	getgrades "go-bases/intro-func/get_grades"

@@ -1,4 +1,4 @@
-package getgrades
+package main
 
 import (
 	"errors"

@@ -1,4 +1,4 @@
-package animalfood_test
+package main_test
 
 import (
 	animalfood "go-bases/intro-func/animal_food"

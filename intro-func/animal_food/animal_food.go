@@ -1,4 +1,4 @@
-package animalfood
+package main
 
 import (
 	"errors"
