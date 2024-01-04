@@ -56,13 +56,15 @@ func (l Large) Price() float64 {
 	return l.productPrice*1.03 + 2500
 }
 
+type ProductSize int
+
 const (
-	small = iota
+	small ProductSize = iota
 	medium
 	large
 )
 
-func GetProduct(productType int, price float64) (Product, error) {
+func GetProduct(productType ProductSize, price float64) (Product, error) {
 	switch productType {
 	case small:
 		return Small{productPrice: price}, nil
