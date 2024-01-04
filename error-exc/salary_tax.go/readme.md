@@ -1,0 +1,1 @@
+Errors where added to intro-func/salary/ excercise
